@@ -9,6 +9,8 @@ def teste():
 	#return render_template('nfe/teste.html')
 	return 'teste blueprint nfe'
 
-@nfe.route('/status/',methods=['GET'])
+@nfe.route('/status/',methods=['GET', 'POST'])
 def status():
+	if request.method == 'POST':
+		print(request)
 	return render_template("/nfe/status.html")

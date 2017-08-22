@@ -7,11 +7,11 @@
 <body>
 <form>
 
-	<p><label>Cerificado Digital:</label> <input type="text"></p>
-	<p><label>Senha:</label> <input type="password"></p>
-	<input type="checkbox" name="vehicle" value="Bike">Homologação<br>
+	<p><label>Cerificado Digital:</label> <input type="text" name="certificado"></p>
+	<p><label>Senha:</label> <input type="password" name="senha"></p>
+	<input type="checkbox" name="Homologação" value="True">Homologação<br>
 	<p><label>UF:</label>
-	<select>
+	<select name="uf">
   	 	<option value="PR">PR</option>
   	 	<option value="SP">SP</option>
      	<option value="AC">AC</option>
@@ -41,7 +41,7 @@
 
 	</select></p>
 	<p><label>Tipo: </label>
-	<select>
+	<select name="tipo">
   	 	<option value="NFE">NFE</option>
   	 	<option value="NFCE">NFCE</option>
 	</select>
