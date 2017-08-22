@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-from flask import Blueprint, render_template
-
+from flask import Blueprint, render_template, request, redirect, url_for
 # Define the blueprint: 'nfe', set its url prefix: app.url/auth
 nfe = Blueprint('nfe', __name__)
 
