@@ -8,3 +8,7 @@ nfe = Blueprint('nfe', __name__)
 def teste():
 	#return render_template('nfe/teste.html')
 	return 'teste blueprint nfe'
+
+@nfe.route('/status/',methods=['GET'])
+def status():
+	return render_template("/nfe/status.html")
