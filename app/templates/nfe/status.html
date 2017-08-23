@@ -10,8 +10,12 @@
 <html>
 <body>
 <form id="status" name="status" method="POST">
-
-	<p><label>Cerificado Digital:</label> <input type="text" name="certificado"></p>
+<div class="container">
+    <p><a href="https://v4-alpha.getbootstrap.com/components/forms/">Documentação form bootstrap 4</a></p>
+	<div class="form-group">
+        <label for="certificado">Cerificado Digital:</label>
+        <input type="text" name="certificado" class="form-control" placeholder="/home/user/certificado.pfx">
+    </div>
 	<p><label>Senha:</label> <input type="password" name="senha"></p>
 	<input type="checkbox" name="Homologação" value="True">Homologação<br>
 	<p><label>UF:</label>
@@ -52,7 +56,7 @@
 	</p>
      <button id="btn_cadastrar" form="status" type="submit">Cadastrar</button> 
 
-
+</div>
 </form>
     <!-- jQuery -->
     <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
