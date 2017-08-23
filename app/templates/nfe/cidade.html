@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+ <head>
+ 	<meta charset="UTF-8"/>
+ 	<title>Cidade</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+</head>
+<html>
+<body>
+<br><br>
+<form id="cidade" name="cidade" method="POST">
+<div class="container">
+	<div class="form-group">
+        <label for="cidade">Cidade:</label>
+        <input type="text" name="cidade" class="form-control" placeholder="Digite o Nome da Sua Cidade">
+    </div>
+
+    <div class="form-group">
+	<label class="mr-sm-2" for="inlineFormCustomSelect" >UF:</label>
+	<select name="uf" class="custom-select mb-2 mr-sm-2 mb-sm-0" id="UF">
+  	 	<option value="PR">PR</option>
+  	 	<option value="SP">SP</option>
+     	<option value="AC">AC</option>
+     	<option value="RJ">RJ</option>
+     	<option value="DF">DF</option>
+     	<option value="RS">RS</option>
+     	<option value="SC">SC</option>
+     	<option value="MS">MS</option>
+     	<option value="MT">MT</option>
+     	<option value="DF">GO</option>
+     	<option value="MG">DF</option>
+     	<option value="ES">ES</option>
+     	<option value="BA">BA</option>
+     	<option value="SE">SE</option>
+     	<option value="AL">AL</option>
+     	<option value="PE">PE</option>
+     	<option value="PB">PB</option>
+     	<option value="RN">RN</option>
+     	<option value="CE">CE</option>
+     	<option value="PI">PI</option>
+     	<option value="MA">MA</option>
+     	<option value="TO">TO</option>
+     	<option value="PA">PA</option>
+     	<option value="AP">DF</option>
+     	<option value="RR">RR</option>
+     	<option value="AM">AM</option>
+
+	</select>
+    </div>
+
+   
+     <button id="btn_cadastrar" class="btn btn-primary" type="submit">Cadastrar</button> 
+     <br> <br>
+     <div class="form-group">
+    <label for="exampleTextarea">Exibir Resultados do Retorno</label>
+    <textarea class="form-control" id="consulta" rows="5">{% if resposta %}{{resposta}}{% endif %}
+    </textarea>
+  </div>
+
+
+</div>
+</form>
+    <!-- jQuery -->
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <!-- Popper for Bootstrap -->
+    <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+</body> 
+</html>
