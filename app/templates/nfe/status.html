@@ -16,16 +16,17 @@
         <label for="certificado">Cerificado Digital:</label>
         <input type="text" name="certificado" class="form-control" placeholder="/home/user/certificado.pfx">
     </div>
-    <div>
-	<p><label>Senha:</label> 
-    <input type="password" class="form-control" id="senha" placeholder="Senha" name="senha"></p>
+    <div class="form-group">
+	   <label>Senha:</label> 
+        <input type="password" class="form-control" id="senha" placeholder="Senha" name="senha">
     </div>
     <div class="form-check">
         <label class="form-check-label">
-	       <input type="checkbox" class="form-check-input"  name="Homologação" value="True">Homologação
+	       <input type="checkbox" class="form-check-input"  name="homologacao" checked value="True">Homologação
         </label>
     </div>
-	<p><label class="mr-sm-2" for="inlineFormCustomSelect" >UF:</label>
+    <div class="form-group">
+	<label class="mr-sm-2" for="inlineFormCustomSelect" >UF:</label>
 	<select name="uf" class="custom-select mb-2 mr-sm-2 mb-sm-0" id="UF">
   	 	<option value="PR">PR</option>
   	 	<option value="SP">SP</option>
@@ -54,14 +55,28 @@
      	<option value="RR">RR</option>
      	<option value="AM">AM</option>
 
-	</select></p>
-	<p><label class="mr-sm-2" for="inlineFormCustomSelect">Tipo: </label>
-	<select name="tipo" class="custom-select mb-2 mr-sm-2 mb-sm-0" id="tipo">
-  	 	<option value="NFE">NFE</option>
-  	 	<option value="NFCE">NFCE</option>
 	</select>
-	</p>
-     <button id="btn_cadastrar" class="btn btn-primary" form="status" type="submit">Cadastrar</button> 
+    </div>
+
+    <div class="form-group">
+	<label class="mr-sm-2" for="inlineFormCustomSelect">Tipo: </label>
+	<select name="tipo" class="custom-select mb-2 mr-sm-2 mb-sm-0" id="tipo">
+  	 	<option value="nfe">NFE</option>
+  	 	<option value="nfce">NFCE</option>
+	</select>
+	</div>
+    
+     <button id="btn_cadastrar" class="btn btn-primary" form="status" type="submit">Consultar</button> 
+     <br> <br>
+     <div class="form-group">
+    <label for="exampleTextarea">Exibir Resultados do Retorno</label>
+    <textarea class="form-control" id="consulta" rows="5">
+        {% if resposta %}
+            {{resposta}}
+        {% endif %}
+    </textarea>
+  </div>
+
 
 </div>
 </form>

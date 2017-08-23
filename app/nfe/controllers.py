@@ -11,11 +11,21 @@ def teste():
 @nfe.route('/status/',methods=['GET', 'POST'])
 def status():
 	if request.method == 'POST':
-		import pdb
-		pdb.set_trace()
-		print(request.form)
-		return redirect(url_for('nfe.teste'))
-	return render_template("/nfe/status.html")
+		from pynfe.processamento.comunicacao import ComunicacaoSefaz
+		certificado = request.form["certificado"]
+		senha = request.form["senha"]
+		uf = request.form["uf"]
+		homologacao = bool(request.form["homologacao"])
+		tipo = request.form["tipo"]
 
+		# import pdb
+		# pdb.set_trace()
+
+		con = ComunicacaoSefaz(uf, certificado, senha, homologacao)
+		xml = con.status_servico(tipo)     # nfe ou nfce
+		print (xml.text)
+		
+		return render_template("/nfe/status.html", resposta = xml.text)
+	return render_template("/nfe/status.html")
 # list codcidade
 # os.listdir(os.path.dirname(pynfe.__file__)+'/data/MunIBGE')
