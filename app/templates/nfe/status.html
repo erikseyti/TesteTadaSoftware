@@ -1,11 +1,15 @@
  <!DOCTYPE html>
  <head>
  	<meta charset="UTF-8"/>
- 	<title>Status NFE</title>
+ 	<title>Status Nota</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
 </head>
 <html>
 <body>
-<form>
+<form id="status" name="status" method="POST">
 
 	<p><label>Cerificado Digital:</label> <input type="text" name="certificado"></p>
 	<p><label>Senha:</label> <input type="password" name="senha"></p>
@@ -46,10 +50,15 @@
   	 	<option value="NFCE">NFCE</option>
 	</select>
 	</p>
-     <button type="button">Cadastrar</button> 
+     <button id="btn_cadastrar" form="status" type="submit">Cadastrar</button> 
 
 
 </form>
-
+    <!-- jQuery -->
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <!-- Popper for Bootstrap -->
+    <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
 </body> 
 </html>

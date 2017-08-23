@@ -11,5 +11,11 @@ def teste():
 @nfe.route('/status/',methods=['GET', 'POST'])
 def status():
 	if request.method == 'POST':
-		print(request)
+		import pdb
+		pdb.set_trace()
+		print(request.form)
+		return redirect(url_for('nfe.teste'))
 	return render_template("/nfe/status.html")
+
+# list codcidade
+# os.listdir(os.path.dirname(pynfe.__file__)+'/data/MunIBGE')
