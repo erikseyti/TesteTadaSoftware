@@ -6,73 +6,74 @@
     <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Custom Fonts -->
     <link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
-    
 </head>
 <html>
 <body>
-<br><br>
+<br>
 <form id="cidade" name="cidade" method="POST">
 <div class="container">
 	<div class="form-group">
-        <label for="cidade">Cidade:</label>
-        <input type="text" name="cidade" id="nomecidade" class="form-control" placeholder="Digite o Nome da Sua Cidade">
-    </div>
+    
+        <label class="col-2" id="cidadelabel" for="cidade">Cidade:</label>
+        <input class="col-3" type="text" name="cidade" id="nomecidade" class="form-control" placeholder="Digite o Nome da Sua Cidade">
+    
 
-    <div class="form-group">
-	<label class="mr-sm-2" for="inlineFormCustomSelect" >UF:</label>
-	<select name="uf" class="custom-select mb-2 mr-sm-2 mb-sm-0" id="UF">
-  	 	<option value="PR">PR</option>
-  	 	<option value="SP">SP</option>
-     	<option value="AC">AC</option>
-     	<option value="RJ">RJ</option>
-     	<option value="DF">DF</option>
-     	<option value="RS">RS</option>
-     	<option value="SC">SC</option>
-     	<option value="MS">MS</option>
-     	<option value="MT">MT</option>
-     	<option value="GO">GO</option>
-     	<option value="MG">MG</option>
-     	<option value="ES">ES</option>
-     	<option value="BA">BA</option>
-     	<option value="SE">SE</option>
-     	<option value="AL">AL</option>
-     	<option value="PE">PE</option>
-     	<option value="PB">PB</option>
-     	<option value="RN">RN</option>
-     	<option value="CE">CE</option>
-     	<option value="PI">PI</option>
-     	<option value="MA">MA</option>
-     	<option value="TO">TO</option>
-     	<option value="PA">PA</option>
-     	<option value="AP">AP</option>
-     	<option value="RR">RR</option>
-     	<option value="AM">AM</option>
+	<label class="mr-sm-2" class="col-2"  id ="estadolabel" for="inlineFormCustomSelect" >Estado:</label>
+	<select name="uf" class="col-3" class="custom-select mb-2 mr-sm-2 mb-sm-0" id="UF">
+        <option value="AC">Acre</option>
+        <option value="AL">Alagoas</option>
+        <option value="AP">Amapá</option>
+        <option value="AM">Amazonas</option>
+        <option value="BA">Bahia</option>
+        <option value="CE">Ceará</option>
+        <option value="DF">Distrito Federal</option>
+        <option value="ES">Espirito Santo</option>
+        <option value="GO">Goias</option>
+        <option value="MA">Maranhão</option>
+        <option value="MS">Mato Grosso do Sul</option>
+        <option value="MG">Minas Gerais</option>
+        <option value="PA">Pará</option>
+        <option value="PB">Paraíba</option>
+  	 	<option value="PR" selected="True">Paraná</option>
+        <option value="PE">Pernambuco</option>
+        <option value="PI">Piauí</option>
+        <option value="RJ">Rio de Janeiro</option>
+        <option value="RN">Rio Grande do Norte</option>
+        <option value="RS">Rio Grande do Sul</option>
+        <option value="RO">Rondônia</option>
+        <option value="RR">Roraima</option>
+        <option value="SC">Santa Catarina</option>
+  	 	<option value="SP">São Paulo</option>
+        <option value="SE">Sergipe</option>
+        <option value="TO">Tocantins</option>
 
 	</select>
+    
+</div>
+    <div class="form-group">
+        <label for="cidade" id="codigoibgelabel" class="col-2">Cod. IBGE:</label>
+        <input type="text" class="col-3" name="codigo IBGE" id="codigoibge" class="form-control"">
     </div>
 
     <div class="form-group">
-        <label for="cidade">Cod. IBGE:</label>
-        <input type="text" name="codigo IBGE" id="codigoibge" class="form-control"">
-    </div>
+        <label for="cidade" class="col-2" id="dataregistrolabel">Data Registro:</label>
 
-    <div class="form-group">
-        <label for="cidade">Data Registro:</label>
-        <input type="text" name="Data Registro" id="dataregistro" class="form-control"">
-    </div>
+        <input type="text" class="col-3" name="Data Registro" id="dataregistro" class="form-control"">
 
-    <div class="form-check">
-        <label class="form-check-label">
-           <input type="checkbox" class="form-check-input"  name="ativo" value="True">Ativo
+        <label class="col-1" class="form-check-label">
+           Ativo
         </label>
+
+           <input type="checkbox" id="ativocheckbox" class="form-check-input"  name="ativo" value="True">
     </div>        
-   
-     <button id="btn_cadastrar" class="btn btn-success" type="submit">Cadastrar</button>
-     <button type="button" class="btn btn-primary">Voltar</button>
+    <div id="botoes" class="form-group" class="col-2">
+        <button id="btn_cadastrar" class="btn btn-success" type="submit">Cadastrar</button>
+         <button type="button" class="btn btn-primary">Voltar</button>
+    </div>
      <br> <br>
      <div class="form-group">
-    <label for="exampleTextarea">Exibir Resultados do Retorno</label>
-    <textarea class="form-control" id="cadastrar" rows="5">{% if resposta %}{{resposta}}{% endif %}
+        <label for="exampleTextarea">Exibir Resultados do Retorno</label>
+    <textarea class="form-control" id="cadastrar"   rows="5">{% if resposta %}{{resposta}}{%    endif %}
     </textarea>
   </div>
 
@@ -102,7 +103,38 @@
           
 }
 
-    </script>>
+    </script>
+
+<style type="text/css">
+#estadolabel
+{
+    margin-left: 8px;
+    margin-right: -2px;
+}
+
+#cidadelabel
+{
+    margin-right: -55px;
+}
+#codigoibgelabel
+{
+    margin-right:-55px;
+}
+#dataregistrolabel
+{
+    margin-right:-55px;
+}
+#ativocheckbox
+{
+    margin-top:11px;
+    margin-left:-37px;
+}
+#botoes
+{
+    margin-left:300px;
+
+}
+</style>
 
 </body> 
 </html>
