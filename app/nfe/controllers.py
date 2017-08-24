@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from flask import Blueprint, render_template, request, redirect, url_for
+from flask import Blueprint, render_template, request, redirect, url_for, jsonify
 # Define the blueprint: 'nfe', set its url prefix: app.url/auth
 nfe = Blueprint('nfe', __name__)
 
@@ -37,3 +37,9 @@ def status():
 	return render_template("/nfe/status.html")
 # list codcidade
 # os.listdir(os.path.dirname(pynfe.__file__)+'/data/MunIBGE')
+
+@nfe.route('/_cod_ibge/', methods=['POST'])
+def _cod_ibge():
+	m = 'teste'
+	msg = {"value": m, "status":"OK"}
+	return jsonify(resposta=msg)
