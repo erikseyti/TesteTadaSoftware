@@ -13,7 +13,7 @@ def cidade():
 	if request.method == 'POST':
 		cidade = request.form["cidade"].strip()
 		uf = request.form["uf"]
-		return render_template("/nfe/cidade.html", resposta=eval(cidade))
+		return render_template("/nfe/cidade.html", resposta=cidade)
 	return render_template("/nfe/cidade.html")
 
 @nfe.route('/status/',methods=['GET', 'POST'])
