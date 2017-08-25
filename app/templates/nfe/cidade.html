@@ -7,8 +7,7 @@
     <!-- Bootstrap Core CSS -->
     <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Custom Fonts -->
-    <link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet">
 
 </head>
 <html>
@@ -16,14 +15,12 @@
 <br>
 <form id="cidade" name="cidade" method="POST">
 <div class="container">
-	<div class="form-group">
-    
-        <label class="col-2" id="cidadelabel" for="cidade">Cidade:</label>
-        <input class="col-3" type="text" name="cidade" id="nomecidade" class="form-control">
-    
+  	<div class="form-group row">
+      <label class="col-2 text-right" id="cidadelabel" for="cidade">Cidade:</label>
+      <input class="col-3 form-control" type="text" name="cidade" id="nomecidade">
 
-	<label class="mr-sm-2" class="col-2"  id ="estadolabel" for="inlineFormCustomSelect" >Estado:</label>
-	<select name="uf" class="col-3" class="custom-select mb-2 mr-sm-2 mb-sm-0" id="UF">
+      <label class="col-2 text-right"  id ="estadolabel" for="inlineFormCustomSelect" >Estado:</label>
+      <select name="uf" class="col-3 custom-select" id="UF">
         <option disabled selected="True" value> -- Selecione Uma Opção -- </option>
         <option value="AC">Acre</option>
         <option value="AL">Alagoas</option>
@@ -39,7 +36,7 @@
         <option value="MG">Minas Gerais</option>
         <option value="PA">Pará</option>
         <option value="PB">Paraíba</option>
-  	 	<option value="PR">Paraná</option>
+        <option value="PR">Paraná</option>
         <option value="PE">Pernambuco</option>
         <option value="PI">Piauí</option>
         <option value="RJ">Rio de Janeiro</option>
@@ -48,37 +45,39 @@
         <option value="RO">Rondônia</option>
         <option value="RR">Roraima</option>
         <option value="SC">Santa Catarina</option>
-  	 	<option value="SP">São Paulo</option>
+        <option value="SP">São Paulo</option>
         <option value="SE">Sergipe</option>
         <option value="TO">Tocantins</option>
-
-	</select>
-    
-</div>
-    <div class="form-group">
-        <label for="cidade" id="codigoibgelabel" class="col-2">Cod. IBGE:</label>
-        <input type="text" class="col-3" name="codigo IBGE" id="codigoibge" class="form-control"">
-
-        <button type="button" id="botoamodal"  class="btn btn-primary">Botão Modal</button>
+      </select>
+    </div>
+    <div class="form-group row">
+        <label for="cidade" id="codigoibgelabel" class="col-2 text-right">Cod. IBGE:</label>
+        <input type="text" class="col-3 form-control" name="codigo IBGE" id="codigoibge">
+        <div class="col-2"></div>
+        <button type="button" id="botoamodal"  class="btn btn-primary col-2">Botão Modal</button>
         
     </div>
 
-    <div class="form-group">
+    <div class="form-group row">
         <label for="cidade" class="col-2" id="dataregistrolabel">Data Registro:</label>
+        <input type="text" class="col-3 form-control" name="Data Registro" id="dataregistro">
 
-        <input type="text" class="col-3" name="Data Registro" id="dataregistro" class="form-control"">
+        <div class="col-2"></div>
+        <div class="col-3">
+          <label class="custom-control custom-checkbox">
+            <input type="checkbox" id="ativocheckbox" class="custom-control-input"  name="ativo" value="True">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">Ativo</span>
+          </label>
+        </div>
+    </div>
 
-        <label class="col-1" class="form-check-label">
-           Ativo
-        </label>
-
-           <input type="checkbox" id="ativocheckbox" class="form-check-input"  name="ativo" value="True">
-    </div>        
-    <div id="botoes" class="form-group" class="col-2">
-        <button id="btn_cadastrar" class="btn btn-success" type="submit"> <i class="fa fa-check-square-o" aria-hidden="true"></i>Cadastrar</button>
-        <button type="button" class="btn btn-primary">
-        <i class="fa fa-undo" aria-hidden="true"></i>
-        Voltar</button>
+    <div class="row">
+      <div class="col-3"></div>
+      <div id="botoes" class="col-6 botoes">
+          <button id="btn_cadastrar" class="btn btn-success" type="submit"><i class="fa fa-check" aria-hidden="true"></i> Cadastrar</button>
+          <button id="btn_voltar" type="button" class="btn btn-primary"><i class="fa fa-undo" aria-hidden="true"></i> Voltar</button>
+      </div>
     </div>
      <br> <br>
      <div class="form-group">
@@ -163,49 +162,24 @@ $('#botoamodal').click(function(){
       });
 });
 
+$(function(){
+    $('#btn_voltar').width($('#btn_cadastrar').width());
+});
+
 </script>
 
 <style type="text/css">
-#estadolabel
-{
-    margin-left: 8px;
-    margin-right: -2px;
-}
-
-#cidadelabel
-{
-    margin-right: -55px;
-}
-#codigoibgelabel
-{
-    margin-right:-55px;
-}
-#dataregistrolabel
-{
-    margin-right:-55px;
-}
-#ativocheckbox
-{
-    margin-top:11px;
-    margin-left:-37px;
-}
-#botoes
-{
-    margin-left:300px;
+#resposta{
+  height:150px;
 
 }
-#codigoibge
-{
-    margin-right:5px;
-
+.botoes{
+  margin-bottom: 5%;
+  text-align: center;
 }
-
-#resposta
-{
-    height:150px;
-
+.botoes button{
+  margin: 0 2% 0 2%;
 }
-
 
 
 </style>
