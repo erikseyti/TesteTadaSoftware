@@ -42,7 +42,6 @@ def status():
 def _cod_ibge():
 	import os
 	import pynfe
-	cd = "50"
 	if request.method == "POST":
 		uf = request.form["uf"]
 		if uf == "RR":
@@ -99,13 +98,9 @@ def _cod_ibge():
 			cd = "12"
 		elif uf == "ES":
 			cd = "32"
-
-
-	print(uf)
-	print(cd)
 	# 'MunIBGE-UF'+dic[uf]+'.txt'
-
-	dic = {uf:cd}
+	print(dic[uf])
+	dic = {'PR':'41','RR':'14','CE':'23'}
 	arquivo = os.path.dirname(pynfe.__file__)+'/data/MunIBGE/MunIBGE-UF'+dic[uf]+'.txt'
 	with open(arquivo, 'r') as file:
 		m = file.read()
