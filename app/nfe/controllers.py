@@ -44,63 +44,10 @@ def _cod_ibge():
 	import pynfe
 	if request.method == "POST":
 		uf = request.form["uf"]
-		if uf == "RR":
-			cd = "14"
-		elif uf == "PR":
-			cd = "41"
-		elif uf == "CE":
-			cd = "23"
-		elif uf == "RS":
-			cd = "43"
-		elif uf == "PI":		
-			cd = "22"
-		elif uf == "GO":
-			cd = "52"
-		elif uf == "RO":
-			cd = "11"
-		elif uf == "PE":
-			cd = "26"
-		elif uf == "MT":
-			cd = "51"
-		elif uf == "MG":
-			cd = "31"
-		elif uf == "SC":
-			cd = "42"
-		elif uf == "BA":
-			cd = "29"
-		elif uf == "RJ":
-			cd = "33"
-		elif uf == "AP":
-			cd = "16"
-		elif uf == "SE":
-			cd = "28"
-		elif uf == "AM":
-			cd = "13"
-		elif uf == "MS":
-			cd = "50"
-		elif uf == "SP":
-			cd = "35"
-		elif uf == "DF":
-			cd = "53"
-		elif uf == "PB":
-			cd = "25"
-		elif uf == "AL":
-			cd = "27"
-		elif uf == "RN":
-			cd = "24"
-		elif uf == 	"MA":
-			cd = "21"	
-		elif uf == "PA":
-			cd = "15"
-		elif uf == "TO":
-			cd = "17"
-		elif uf ==  "AC":
-			cd = "12"
-		elif uf == "ES":
-			cd = "32"
 	# 'MunIBGE-UF'+dic[uf]+'.txt'
+	
+	dic = {'PR':'41','RR':'14','CE':'23','RS':'43','PI':'22','GO':'52','RO':'11','PE':'26','MT':'51','MG':'31','SC':'42','BA':'29','RJ':'33','AP':'16','SE':'28','AM':'13','MS':'50','SP':'35','DF':'53','PB':'25','AL':'27','RN':'24','MA':'21','PA':'15','TO':'17','AC':'12','ES':'32'}
 	print(dic[uf])
-	dic = {'PR':'41','RR':'14','CE':'23'}
 	arquivo = os.path.dirname(pynfe.__file__)+'/data/MunIBGE/MunIBGE-UF'+dic[uf]+'.txt'
 	with open(arquivo, 'r') as file:
 		m = file.read()
