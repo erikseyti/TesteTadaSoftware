@@ -40,6 +40,12 @@ def status():
 
 @nfe.route('/_cod_ibge/', methods=['POST'])
 def _cod_ibge():
-	m = 'teste'
+	import os
+	import pynfe
+	# 'MunIBGE-UF'+dic[uf]+'.txt'
+	dic = {'PR':'41'}
+	arquivo = os.path.dirname(pynfe.__file__)+'/data/MunIBGE/MunIBGE-UF'+dic['PR']+'.txt'
+	with open(arquivo, 'r') as file:
+		m = file.read()
 	msg = {"value": m, "status":"OK"}
 	return jsonify(resposta=msg)
