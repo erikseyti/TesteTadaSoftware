@@ -8,6 +8,13 @@ def teste():
 	#return render_template('nfe/teste.html')
 	return 'teste blueprint nfe'
 
+@nfe.route('/senha/', methods=['GET', 'POST'])
+def senha():
+	#return render_template('nfe/teste.html')
+	return render_template("/nfe/senha.html")
+
+
+
 @nfe.route('/cidade/',methods=['GET','POST'])
 def cidade():
 	if request.method == 'POST':
@@ -32,7 +39,7 @@ def status():
 		con = ComunicacaoSefaz(uf, certificado, senha, homologacao)
 		xml = con.status_servico(tipo)     # nfe ou nfce
 		print (xml.text)
-		
+
 		return render_template("/nfe/status.html", resposta = xml.text)
 	return render_template("/nfe/status.html")
 # list codcidade
@@ -45,7 +52,7 @@ def _cod_ibge():
 	if request.method == "POST":
 		uf = request.form["uf"]
 	# 'MunIBGE-UF'+dic[uf]+'.txt'
-	
+
 	dic = {'PR':'41','RR':'14','CE':'23','RS':'43','PI':'22','GO':'52','RO':'11','PE':'26','MT':'51','MG':'31','SC':'42','BA':'29','RJ':'33','AP':'16','SE':'28','AM':'13','MS':'50','SP':'35','DF':'53','PB':'25','AL':'27','RN':'24','MA':'21','PA':'15','TO':'17','AC':'12','ES':'32'}
 	print(dic[uf])
 	arquivo = os.path.dirname(pynfe.__file__)+'/data/MunIBGE/MunIBGE-UF'+dic[uf]+'.txt'
