@@ -13,6 +13,10 @@ def senha():
 	#return render_template('nfe/teste.html')
 	return render_template("/nfe/senha.html")
 
+@nfe.route('/awesomeicon/', methods=['GET', 'POST'])
+def awesome_icons():
+	#return render_template('nfe/teste.html')
+	return render_template("/nfe/awesome_icons.html")
 
 
 @nfe.route('/cidade/',methods=['GET','POST'])
